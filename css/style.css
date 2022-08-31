@@ -1,0 +1,250 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+body {
+    background: gray;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+button {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+}
+
+input {
+    outline: none;
+}
+
+.dialog {
+    width: 320px;
+    height: 533px;
+}
+
+.container {
+    padding: 8px;
+    max-width: 320px;
+    border: 3px solid #fa788e;
+    border-radius: 5px;
+}
+
+.dialog__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.dialog__btn-settings,
+.dialog__btn-exit {
+    padding: 7px;
+    border: 1px solid #000000;
+}
+
+.dialog__message-box {
+    height: 437px;
+    overflow-y: auto;
+}
+
+.dialog__message-list {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: auto; */
+}
+
+.dialog__message {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    max-width: 273px;
+}
+
+.dialog__message + .dialog__message {
+    margin-top: 8px;
+}
+
+.dialog__message-text {
+    word-wrap: break-word;
+}
+
+.dialog__delivered_message {
+    background-color: #e5e5e5;
+}
+
+.dialog__send_message {
+    background-color: #f6f6f6;
+}
+
+.dialog__message-time {
+    align-self: flex-end;
+    margin-top: 4px;
+    font-style: italic;
+    font-weight: 300;
+    color: #8d9091;
+}
+
+.dialog__personal_message {
+    align-self: flex-end;
+    background-color: #e4ecf3;
+}
+
+.dialog__someone_message {
+    align-self: flex-start;
+}
+
+.dialog__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.dialog__message-input {
+    width: 257px;
+    padding: 7px;
+    height: 32px;
+    background-color: inherit;
+    border: 1px solid #000;
+    outline: none;
+}
+
+.dialog__message-submit {
+    width: 29px;
+    height: 32px;
+    border: 1px solid #000;
+}
+
+.dialog__message-box {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.dialog__message-box::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s linear;
+
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.popup--active {
+    opacity: 1;
+    pointer-events: visible;
+}
+
+/* .popup--settings {
+}
+.popup--authorization {
+}
+ */
+.popup__body {
+    padding: 14px;
+    width: 273px;
+    height: 319px;
+
+    background: linear-gradient(45deg, #ffa799, #c5dde8, #fff599);
+    border: 3px solid #fa788e;
+    border-radius: 5px;
+}
+
+.popup__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.popup__wrapper {
+    margin-bottom: 20px;
+}
+
+.popup__header-title {
+    opacity: 100%;
+}
+
+/* .popup__header-close {
+} */
+.popup__header-icon {
+    width: 14px;
+    height: 20.82px;
+    stroke: #998899;
+    opacity: 0.9;
+    transition: all 0.1s;
+}
+
+.popup__header-icon:hover {
+    opacity: 1;
+    stroke: #000;
+}
+
+.popup__bottom {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup__input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 7px;
+
+    background-color: transparent;
+    border: 1px solid #000000;
+    outline: none;
+}
+
+.popup__input:focus {
+    border: 2px solid #000000;
+}
+
+.popup__submit {
+    padding: 6px 7px;
+    display: inline-block;
+    height: 32px;
+    background-color: transparent;
+    border: 1px solid #000000;
+    outline: none;
+    border-radius: 0;
+}
+
+.popup__submit:hover {
+    border: 2px solid #000000;
+}
+.arrow{
+    position: absolute;
+    opacity: 0;
+}
+.arrow-visible{
+    opacity: 1;
+}
