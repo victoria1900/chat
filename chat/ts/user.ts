@@ -5,14 +5,14 @@ import {
 import {UI_ELEMENTS} from "./view";
 import {closeSettings} from "./modal";
 
-export function setUser() {
-    const name = UI_ELEMENTS.INPUT_USERNAME.value;
+export function setUser(): void {
+    const name: string = UI_ELEMENTS.INPUT_USERNAME.value;
     setUserName(name);
     closeSettings();
     setLocalHistory();
 }
 
-async function setUserName(name){
+async function setUserName(name: string): Promise<void> {
     try {
         const response = await fetch(`https://${URL}/api/user`, {
             method: "PATCH",
@@ -25,14 +25,14 @@ async function setUserName(name){
             })
         });
         const json = await response.json();
-        const userName = json.name;
+        const userName: string = json.name;
         console.log(`Имя пользователя изменено на: ${userName}`);
-    } catch (err) {
+    } catch (err: unknown) {
         console.log(err);
     }
 }
 
-export async function getUser() {
+export async function getUser(): Promise<void> {
     try {
         const response = await fetch(`https://${URL}/api/user/me`, {
             method: "GET",
@@ -42,7 +42,7 @@ export async function getUser() {
             }
         });
         const json = await response.json();
-    } catch (err) {
+    } catch (err: unknown) {
         console.log(err);
     }
 }

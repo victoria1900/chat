@@ -1,6 +1,6 @@
 import {
     UI_ELEMENTS
-} from "./view.js";
+} from "./view";
 import {setLocalHistory, setMessage} from "./load";
 import {scrollToBottom} from "./scroll";
 import {socket, socketSend} from "./socket";
@@ -17,7 +17,7 @@ export function getNewMessage() {
 
 export function getMessageSocket() {
     try {
-        socket.onmessage = function (event) {
+        socket.onmessage = function (event:any) {
             const json = JSON.parse(event.data);
             const name = json.user.name;
             const text = json.text;
@@ -31,10 +31,11 @@ export function getMessageSocket() {
     }
 }
 
-function sendMessage(name, text, date) {
-    const templateMessage = document.querySelector('#tmpl');
+function sendMessage(name:string, text:string, date:string) {
+    const templateMessage:any = document.querySelector('#tmpl');
     const message = templateMessage.content.cloneNode(true);
     const listMessages = UI_ELEMENTS.MESSAGES_LIST;
+    // @ts-ignore
     setMessage(message, text, name, date);
     listMessages.append(message);
 }

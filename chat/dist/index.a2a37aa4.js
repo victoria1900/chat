@@ -142,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"hfKzk":[function(require,module,exports) {
+})({"jeuwH":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "106c69fefbb3188c";
+module.bundle.HMR_BUNDLE_ID = "54f1c6afa2a37aa4";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
@@ -531,23 +531,23 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"bDbGG":[function(require,module,exports) {
-var _viewJs = require("./view.js");
-var _modalJs = require("./modal.js");
-var _loadJs = require("./load.js");
+},{}],"3rz9v":[function(require,module,exports) {
+var _view = require("./view");
+var _modal = require("./modal");
+var _load = require("./load");
 var _socket = require("./socket");
 var _message = require("./message");
 var _user = require("./user");
 var _scroll = require("./scroll");
-(0, _viewJs.UI_ELEMENTS).BUTTON_SUBMIT.addEventListener("click", (0, _message.getNewMessage));
-(0, _viewJs.UI_ELEMENTS).BUTTON_SETTINGS.addEventListener("click", (0, _modalJs.showSettings));
-(0, _viewJs.UI_ELEMENTS).BUTTON_SIGN_UP.addEventListener("click", (0, _modalJs.showAuthorization));
-(0, _viewJs.UI_ELEMENTS).BUTTON_EMAIL_INPUT.addEventListener("click", (0, _loadJs.loadMail));
-(0, _viewJs.UI_ELEMENTS).BUTTON_NAME_INPUT.addEventListener("click", (0, _user.setUser));
-(0, _viewJs.UI_ELEMENTS).MESSAGES_WRAP.addEventListener("scroll", (0, _scroll.showMessagesHistory));
+(0, _view.UI_ELEMENTS).BUTTON_SUBMIT.addEventListener("click", (0, _message.getNewMessage));
+(0, _view.UI_ELEMENTS).BUTTON_SETTINGS.addEventListener("click", (0, _modal.showSettings));
+(0, _view.UI_ELEMENTS).BUTTON_SIGN_UP.addEventListener("click", (0, _modal.showAuthorization));
+(0, _view.UI_ELEMENTS).BUTTON_EMAIL_INPUT.addEventListener("click", (0, _load.loadMail));
+(0, _view.UI_ELEMENTS).BUTTON_NAME_INPUT.addEventListener("click", (0, _user.setUser));
+(0, _view.UI_ELEMENTS).MESSAGES_WRAP.addEventListener("scroll", (0, _scroll.showMessagesHistory));
 (0, _socket.socketConnect)();
 
-},{"./view.js":"2GA9o","./modal.js":"guy4I","./load.js":"jOeeP","./socket":"6PqiQ","./message":"lGCpb","./user":"3QxmH","./scroll":"ox3Ut"}],"2GA9o":[function(require,module,exports) {
+},{"./view":"aqQhS","./modal":"lXND6","./load":"gcEfs","./socket":"h9fI8","./message":"3AcNn","./user":"i1r2y","./scroll":"iUOVa"}],"aqQhS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "UI_ELEMENTS", ()=>UI_ELEMENTS);
@@ -600,38 +600,38 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"guy4I":[function(require,module,exports) {
+},{}],"lXND6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "showSettings", ()=>showSettings);
 parcelHelpers.export(exports, "showAuthorization", ()=>showAuthorization);
 parcelHelpers.export(exports, "closeSettings", ()=>closeSettings);
 parcelHelpers.export(exports, "closeAuthorization", ()=>closeAuthorization);
-var _viewJs = require("./view.js");
+var _view = require("./view");
 function showSettings() {
-    (0, _viewJs.UI_ELEMENTS).POPUP_SETTINGS.classList.add("popup--active");
+    (0, _view.UI_ELEMENTS).POPUP_SETTINGS.classList.add("popup--active");
     closeSettings();
 }
 function showAuthorization() {
-    (0, _viewJs.UI_ELEMENTS).POPUP_AUTHORIZATION.classList.add("popup--active");
+    (0, _view.UI_ELEMENTS).POPUP_AUTHORIZATION.classList.add("popup--active");
     closeAuthorization();
 }
 function closeSettings() {
-    (0, _viewJs.UI_ELEMENTS).BUTTON_CLOSE.forEach(function(button) {
+    (0, _view.UI_ELEMENTS).BUTTON_CLOSE.forEach(function(button) {
         button.addEventListener("click", function() {
-            (0, _viewJs.UI_ELEMENTS).POPUP_SETTINGS.classList.remove("popup--active");
+            (0, _view.UI_ELEMENTS).POPUP_SETTINGS.classList.remove("popup--active");
         });
     });
 }
 function closeAuthorization() {
-    (0, _viewJs.UI_ELEMENTS).BUTTON_CLOSE.forEach(function(button) {
+    (0, _view.UI_ELEMENTS).BUTTON_CLOSE.forEach(function(button) {
         button.addEventListener("click", function() {
-            (0, _viewJs.UI_ELEMENTS).POPUP_AUTHORIZATION.classList.remove("popup--active");
+            (0, _view.UI_ELEMENTS).POPUP_AUTHORIZATION.classList.remove("popup--active");
         });
     });
 }
 
-},{"./view.js":"2GA9o","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"jOeeP":[function(require,module,exports) {
+},{"./view":"aqQhS","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"gcEfs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "URL", ()=>URL);
@@ -644,7 +644,8 @@ parcelHelpers.export(exports, "renderHistory", ()=>renderHistory);
 parcelHelpers.export(exports, "getDataMessage", ()=>getDataMessage);
 parcelHelpers.export(exports, "loadHistory", ()=>loadHistory);
 parcelHelpers.export(exports, "setMessage", ()=>setMessage);
-var _viewJs = require("./view.js");
+var _view = require("./view");
+// @ts-ignore
 var _jsCookie = require("js-cookie");
 var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
 var _dateFns = require("date-fns");
@@ -657,7 +658,7 @@ const getToken = function() {
 };
 const array = JSON.parse(getHistoryStorage());
 async function loadMail() {
-    const email = (0, _viewJs.UI_ELEMENTS).INPUT_EMAIL.value;
+    const email = (0, _view.UI_ELEMENTS).INPUT_EMAIL.value;
     (0, _jsCookieDefault.default).set("email", email);
     try {
         await fetch(`https://${URL}/api/user`, {
@@ -673,10 +674,10 @@ async function loadMail() {
     } catch (err) {
         console.log(err);
     }
-    (0, _viewJs.UI_ELEMENTS).BUTTON_AUTHORIZATION.addEventListener("click", getHistory);
+    (0, _view.UI_ELEMENTS).BUTTON_AUTHORIZATION.addEventListener("click", getHistory);
 }
 function getHistory() {
-    const token = (0, _viewJs.UI_ELEMENTS).INPUT_AUTHORIZATION.value;
+    const token = (0, _view.UI_ELEMENTS).INPUT_AUTHORIZATION.value;
     (0, _jsCookieDefault.default).set("token", token);
     setLocalHistory();
     (0, _modal.closeAuthorization)();
@@ -714,18 +715,18 @@ function getDataMessage(json) {
         const text = item.text;
         const date = item.createdAt;
         const email = item.user.email;
-        loadHistory(text, name, date, email, json);
+        loadHistory(text, name, date, email);
     }
 }
-function loadHistory(text, name, date, email, json) {
+function loadHistory(text, name, date, email) {
     const templateMessage = document.querySelector("#tmpl");
     const message = templateMessage.content.cloneNode(true);
     setMessage(message, text, name, date, email);
-    isHasHistory(json, message);
+    isHasHistory(message);
 }
-function isHasHistory(json, message) {
+function isHasHistory(message) {
     const parseHistory = JSON.parse(getHistoryStorage());
-    const listMessages = (0, _viewJs.UI_ELEMENTS).MESSAGES_LIST;
+    const listMessages = (0, _view.UI_ELEMENTS).MESSAGES_LIST;
     const arrayLength = array.length + 20;
     arrayLength === parseHistory.length ? listMessages.append(message) : listMessages.prepend(message);
 }
@@ -742,7 +743,7 @@ function isOwnMessage(email, message) {
     email === emailCookie ? message.querySelector(".dialog__message").classList.add("dialog__personal_message") : message.querySelector(".dialog__message").classList.add("dialog__someone_message");
 }
 
-},{"./view.js":"2GA9o","js-cookie":"c8bBu","date-fns":"9yHCA","./modal":"guy4I","./scroll":"ox3Ut","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0","./utils":"eYK4L"}],"c8bBu":[function(require,module,exports) {
+},{"./view":"aqQhS","js-cookie":"c8bBu","date-fns":"9yHCA","./modal":"lXND6","./scroll":"iUOVa","./utils":"e4Zav","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"c8bBu":[function(require,module,exports) {
 (function(global, factory) {
     module.exports = factory();
 })(this, function() {
@@ -3633,7 +3634,7 @@ var secondsInYear = secondsInDay * daysInYear;
 var secondsInMonth = secondsInYear / 12;
 var secondsInQuarter = secondsInMonth * 3;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"ox3Ut":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"iUOVa":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "scrollToBottom", ()=>scrollToBottom);
@@ -3672,25 +3673,23 @@ function getArray() {
     (0, _load.getDataMessage)(json);
 }
 
-},{"./view":"2GA9o","./load":"jOeeP","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"eYK4L":[function(require,module,exports) {
+},{"./view":"aqQhS","./load":"gcEfs","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"e4Zav":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "isValidInput", ()=>isValidInput);
 parcelHelpers.export(exports, "isValidEmail", ()=>isValidEmail);
 parcelHelpers.export(exports, "getValidJson", ()=>getValidJson);
 function isValidInput(inputMessage) {
-    if (inputMessage.value === "") console.log("Введите сообщение");
-    else inputMessage.value = "";
+    inputMessage.value === "" ? console.log("Введите сообщение") : inputMessage.value = "";
 }
 function isValidEmail(email) {
-    if (email === "") console.log("Введите почту");
-    else console.log("Код был отправлен!");
+    email === "" ? console.log("Введите почту") : console.log("Код был отправлен!");
 }
 function getValidJson(value) {
     return JSON.stringify(value);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"6PqiQ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"h9fI8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "socket", ()=>socket);
@@ -3712,18 +3711,18 @@ function socketSend(message) {
     }));
 }
 
-},{"./message":"lGCpb","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0","./load":"jOeeP"}],"lGCpb":[function(require,module,exports) {
+},{"./message":"3AcNn","./load":"gcEfs","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"3AcNn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getNewMessage", ()=>getNewMessage);
 parcelHelpers.export(exports, "getMessageSocket", ()=>getMessageSocket);
-var _viewJs = require("./view.js");
+var _view = require("./view");
 var _load = require("./load");
 var _scroll = require("./scroll");
 var _socket = require("./socket");
 var _utils = require("./utils");
 function getNewMessage() {
-    const inputMessage = (0, _viewJs.UI_ELEMENTS).INPUT_MESSAGE;
+    const inputMessage = (0, _view.UI_ELEMENTS).INPUT_MESSAGE;
     const message = inputMessage.value;
     (0, _utils.isValidInput)(inputMessage);
     (0, _socket.socketSend)(message);
@@ -3748,12 +3747,13 @@ function getMessageSocket() {
 function sendMessage(name, text, date) {
     const templateMessage = document.querySelector("#tmpl");
     const message = templateMessage.content.cloneNode(true);
-    const listMessages = (0, _viewJs.UI_ELEMENTS).MESSAGES_LIST;
+    const listMessages = (0, _view.UI_ELEMENTS).MESSAGES_LIST;
+    // @ts-ignore
     (0, _load.setMessage)(message, text, name, date);
     listMessages.append(message);
 }
 
-},{"./view.js":"2GA9o","./load":"jOeeP","./scroll":"ox3Ut","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0","./socket":"6PqiQ","./utils":"eYK4L"}],"3QxmH":[function(require,module,exports) {
+},{"./view":"aqQhS","./load":"gcEfs","./scroll":"iUOVa","./socket":"h9fI8","./utils":"e4Zav","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}],"i1r2y":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "setUser", ()=>setUser);
@@ -3801,6 +3801,6 @@ async function getUser() {
     }
 }
 
-},{"./load":"jOeeP","./view":"2GA9o","./modal":"guy4I","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}]},["hfKzk","bDbGG"], "bDbGG", "parcelRequire94c2")
+},{"./load":"gcEfs","./view":"aqQhS","./modal":"lXND6","@parcel/transformer-js/src/esmodule-helpers.js":"kCoL0"}]},["jeuwH","3rz9v"], "3rz9v", "parcelRequire94c2")
 
-//# sourceMappingURL=index.fbb3188c.js.map
+//# sourceMappingURL=index.a2a37aa4.js.map

@@ -1,7 +1,7 @@
 import {
     UI_ELEMENTS
-} from "./view.js";
-
+} from "./view";
+// @ts-ignore
 import Cookies from 'js-cookie'
 import {
     format
@@ -10,14 +10,14 @@ import {closeAuthorization} from "./modal";
 import {scrollToBottom} from "./scroll";
 import {getValidJson, isValidEmail} from "./utils";
 
-export const URL = 'mighty-cove-31255.herokuapp.com';
-export const getToken = function () {
+export const URL:string = 'mighty-cove-31255.herokuapp.com';
+export const getToken = function ():string {
     return Cookies.get('token');
 }
 export const array = JSON.parse(getHistoryStorage());
 
-export async function loadMail() {
-    const email = UI_ELEMENTS.INPUT_EMAIL.value;
+export async function loadMail(): Promise<void> {
+    const email:string = UI_ELEMENTS.INPUT_EMAIL.value;
     Cookies.set('email', email);
     try {
         await fetch(`https://${URL}/api/user`, {
@@ -36,7 +36,7 @@ export async function loadMail() {
     UI_ELEMENTS.BUTTON_AUTHORIZATION.addEventListener('click', getHistory);
 }
 
-function getHistory() {
+function getHistory():void {
     const token = UI_ELEMENTS.INPUT_AUTHORIZATION.value;
     Cookies.set('token', token);
     setLocalHistory();
@@ -44,28 +44,28 @@ function getHistory() {
     console.log(`Вы успешно авторизованы`);
 }
 
-export async function setLocalHistory() {
+export async function setLocalHistory(): Promise<void> {
     try {
-        const response = await fetch(`https://${URL}/api/messages`, {
+        const response:any = await fetch(`https://${URL}/api/messages`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
                 'Authorization': `Bearer ${getToken()}`,
             }
         });
-        const json = await response.json();
-        const history = json.messages;
+        const json:any = await response.json();
+        const history:any = json.messages;
         localStorage.setItem('history', getValidJson(history));
     } catch (err) {
         console.log(err);
     }
 }
 
-export function getHistoryStorage() {
+export function getHistoryStorage():any {
     return localStorage.getItem('history');
 }
 
-export function renderHistory() {
+export function renderHistory():void {
     const arrayReverse = array.reverse().splice(0, 20);
     const json = arrayReverse.reverse();
     getDataMessage(json);
@@ -74,40 +74,40 @@ export function renderHistory() {
 
 renderHistory();
 
-export function getDataMessage(json) {
+export function getDataMessage(json:any):void {
     for (let item of json) {
-        const name = item.user.name;
-        const text = item.text;
-        const date = item.createdAt;
-        const email = item.user.email;
-        loadHistory(text, name, date, email, json);
+        const name:string = item.user.name;
+        const text:string = item.text;
+        const date:string = item.createdAt;
+        const email:string = item.user.email;
+        loadHistory(text, name, date, email);
     }
 }
 
-export function loadHistory(text, name, date, email, json) {
-    const templateMessage = document.querySelector('#tmpl');
+export function loadHistory(text:string, name:string, date:string, email:string) {
+    const templateMessage:any = document.querySelector('#tmpl');
     const message = templateMessage.content.cloneNode(true);
     setMessage(message, text, name, date, email);
-    isHasHistory(json, message);
+    isHasHistory(message);
 }
 
-function isHasHistory(json, message) {
+function isHasHistory(message:any):void {
     const parseHistory = JSON.parse(getHistoryStorage());
     const listMessages = UI_ELEMENTS.MESSAGES_LIST;
-    const arrayLength = array.length + 20;
+    const arrayLength:number = array.length + 20;
     arrayLength === parseHistory.length ? listMessages.append(message) : listMessages.prepend(message);
 }
 
-export function setMessage(message, text, name, date, email) {
-    const createdDate = format(new Date(date), 'dd.MM');
-    const currentDate = format(new Date(), 'dd.MM');
-    const messageDate = createdDate === currentDate ? format(new Date(date), 'HH:mm') : format(new Date(date), 'dd.MM' + ' ' + 'HH:mm');
+export function setMessage(message:any, text:string, name:string, date:string, email:string) {
+    const createdDate:string = format(new Date(date), 'dd.MM');
+    const currentDate:string = format(new Date(), 'dd.MM');
+    const messageDate:string = createdDate === currentDate ? format(new Date(date), 'HH:mm') : format(new Date(date), 'dd.MM' + ' ' + 'HH:mm');
     message.querySelector('.dialog__message-text').textContent = `${name}: ${text}`;
     message.querySelector('.dialog__message-time').textContent = `${messageDate}`;
     isOwnMessage(email, message);
 }
 
-function isOwnMessage(email, message) {
-    const emailCookie = Cookies.get('email');
+function isOwnMessage(email:string, message:any):void {
+    const emailCookie:string = Cookies.get('email');
     email === emailCookie ? message.querySelector('.dialog__message').classList.add('dialog__personal_message') : message.querySelector('.dialog__message').classList.add('dialog__someone_message');
 }

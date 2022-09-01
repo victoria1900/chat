@@ -1,13 +1,13 @@
 import {
     UI_ELEMENTS
-} from "./view.js";
+} from "./view";
 import {
     showAuthorization,
     showSettings
-} from "./modal.js";
+} from "./modal";
 import {
     loadMail
-} from "./load.js";
+} from "./load";
 import {
     socketConnect
 } from "./socket";
